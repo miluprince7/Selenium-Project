@@ -38,6 +38,12 @@ public class PageUtility {
 		js.executeScript("arguments[0].click();",element);
 	}
 	
+	/*public void doubleClick(WebElement element)
+	{
+		
+		actions.doubleClick(element).build().perform();
+	}*/
+	
 	
 
 }

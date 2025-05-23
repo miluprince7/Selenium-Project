@@ -6,7 +6,7 @@
       <class name="com.sevenrmartsupermarket.tests.LoginTest">
         <methods>
           <include name="launchBrowser"/>
-          <include name="dummyTestCase"/>
+          <include name="verifyInvalidLogin"/>
           <include name="terminateSession"/>
         </methods>
       </class> <!-- com.sevenrmartsupermarket.tests.LoginTest -->

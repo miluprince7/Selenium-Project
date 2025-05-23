@@ -15,35 +15,34 @@ public class LoginTest extends Base {
 	LoginPage loginPage;
 	DashBoardPage dashBoardPage;
 	ExcelRead excelRead=new ExcelRead();
-	CaptureScreenshot captureScreenshot=new CaptureScreenshot();
+	//CaptureScreenshot captureScreenshot=new CaptureScreenshot();
 	
 	
 
-	@Test
+	@Test(groups="smoke")
 	public void verifyValidLogin() {
 		loginPage = new LoginPage(driver);
-		dashBoardPage = new DashBoardPage(driver);
 		loginPage.login();
+		dashBoardPage = new DashBoardPage(driver);
 		String actualProfileName = dashBoardPage.getProfileName();
 		String expectedProfileName = "Admin";
 		Assert.assertEquals(actualProfileName, expectedProfileName);
 	}
 	
-	@Test
+	@Test(groups="smoke")
 	public void verifyInvalidLogin()
 	{
 		loginPage = new LoginPage(driver);
 		loginPage.login("milu", "milu123");
-		boolean expectedErrorMessage=loginPage.invalidLogin();
-		Assert.assertTrue(true);	
+		Assert.assertTrue(loginPage.isErrorDisplayed());	
 	}
 	
-	@Test
+	/*@Test
 	public void dummyTestCase()
 	{
 		excelRead.setExcelFile("AdminUser");
 		String data =excelRead.getCellData(1, 1);
 		System.out.println(data);
 		Assert.assertTrue(false);
-	}
+	}*/
 }

@@ -1,5 +1,6 @@
 package com.sevenrmartsupermarket.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.sevenrmartsupermarket.base.Base;
@@ -11,12 +12,22 @@ public class DashBoardTest extends Base
 	DashBoardPage dashBoardPage;
 	LoginPage loginPage;
 
-	@Test
+	@Test(groups={"regression","smoke"})
 	public void verifyAdminDashboard()
 	{
 		loginPage=new LoginPage(driver);
 		loginPage.login();
 		dashBoardPage=new DashBoardPage(driver);
 		dashBoardPage.clickMoreInfoOfAdminUser();
+	}
+	
+	@Test(groups={"regression","smoke"})
+	public void verifyLogout()
+	{
+		loginPage=new LoginPage(driver);
+		loginPage.login();
+		dashBoardPage=new DashBoardPage(driver);
+	    Assert.assertTrue(dashBoardPage.logoutFromPage());
+			
 	}
 }

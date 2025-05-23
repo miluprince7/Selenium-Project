@@ -10,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.sevenrmartsupermarket.constants.Constants;
 import com.sevenrmartsupermarket.utilities.GeneralUtility;
+import com.sevenrmartsupermarket.utilities.WaitUtility;
 
 public class LoginPage {
 
@@ -18,13 +19,13 @@ public class LoginPage {
 	Properties properties = new Properties();
 
 	@FindBy(xpath = "//input[@name='username']")
-	WebElement userNameField;
+	private WebElement userNameField;
 	@FindBy(xpath = "//input[@name='password']")
-	WebElement passwordField;
+	private WebElement passwordField;
 	@FindBy(xpath = "//button[text()='Sign In']")
-	WebElement signInButton;
+	private WebElement signInButton;
 	@FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
-	WebElement invalidUserLogin;
+	private WebElement invalidUserLogin;
 
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
@@ -47,7 +48,10 @@ public class LoginPage {
 	}
 
 	public void clickOnSignInButton() {
+		WaitUtility waitUtility=new WaitUtility(driver);
+		waitUtility.elementToBeClickable(signInButton, 30);
 		signInButton.click();
+		
 	}
 
 	// to pass username and password that user provide
@@ -66,11 +70,8 @@ public class LoginPage {
 		clickOnSignInButton();
 	}
 
-	public boolean invalidLogin() {
-		if (generalUtility.isDataPresent(invalidUserLogin, "Invalid Username/Password")) {
-			return true;
-		}
-		return true;
-
+	public boolean isErrorDisplayed() {
+		return generalUtility.isDataPresent(invalidUserLogin, "Invalid Username/Password"); 
+			
 	}
 }

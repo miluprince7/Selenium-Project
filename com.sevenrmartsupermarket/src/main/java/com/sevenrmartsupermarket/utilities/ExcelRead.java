@@ -20,7 +20,7 @@ public class ExcelRead {
 
 	public void setExcelFile(String sheetName) {
 		try {
-			File src = new File(Constants.EXCEL_FILE_PATH);// import from java.io
+			File src = new File(Constants.EXCEL_FILE_PATH);// import file from java.io
 			FileInputStream fi = new FileInputStream(src);
 			workbook = new XSSFWorkbook(fi);
 			sheet = workbook.getSheet(sheetName);
