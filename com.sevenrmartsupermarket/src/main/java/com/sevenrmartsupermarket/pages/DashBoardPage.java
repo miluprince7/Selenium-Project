@@ -20,6 +20,11 @@ public class DashBoardPage {
 	private WebElement loggedInUser;
 	@FindBy(xpath = "(//a[@class='dropdown-item'])[2]")
 	private WebElement logout;
+	@FindBy(xpath = "(//a[@class='small-box-footer'])[7]")
+	private WebElement manageNews;
+	@FindBy(xpath = "(//a[@class='small-box-footer'])[3]")
+	private WebElement manageContact;
+	
 	
     public DashBoardPage(WebDriver driver) {
 		this.driver = driver;
@@ -32,6 +37,12 @@ public class DashBoardPage {
 
 	public void clickMoreInfoOfAdminUser() {
 		adminDashboard.click();
+	}
+	public void clickMoreInfoOfManageNews() {
+		manageNews.click();
+	}
+	public void clickMoreInfoOfManageContacts() {
+		manageContact.click();
 	}
 
 	public boolean logoutFromPage() {

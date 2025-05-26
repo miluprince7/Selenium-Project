@@ -38,11 +38,12 @@ public class PageUtility {
 		js.executeScript("arguments[0].click();",element);
 	}
 	
-	/*public void doubleClick(WebElement element)
-	{
-		
-		actions.doubleClick(element).build().perform();
-	}*/
+	//scroll by pixel
+		public void scrollPage()
+		{
+			js.executeScript("window.scrollBy(0,600)");
+		}
+	
 	
 	
 

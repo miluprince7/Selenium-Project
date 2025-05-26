@@ -20,7 +20,7 @@ public class AdminUserTest extends Base {
 		dashboardPage = new DashBoardPage(driver);
 		dashboardPage.clickMoreInfoOfAdminUser();
 		adminUserPage = new AdminUserPage(driver);
-		Assert.assertTrue(adminUserPage.validUserAddedAlert("rheanj", "rhea@3401","Staff"));
+		Assert.assertTrue(adminUserPage.validUserAddedAlert("jess", "jess@190","Staff"));
 	}
 
 	@Test

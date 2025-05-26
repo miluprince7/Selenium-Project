@@ -29,8 +29,8 @@ public class ExcelRead {
 			e.printStackTrace();
 		}
 	}
-	
-	//to read data
+
+	// to read data
 	public String getCellData(int rowNo, int columnNo) {
 		row = sheet.getRow(rowNo);
 		cell = row.getCell(columnNo);
@@ -49,5 +49,15 @@ public class ExcelRead {
 			return null;
 
 		}
+	}
+
+	public Object[][] getMultidimentionalData(int row, int column) {
+		Object data[][] = new Object[row][column];
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < column; j++) {
+				data[i][j] = getCellData(i, j);
+			}
+		}
+		return data;
 	}
 }
