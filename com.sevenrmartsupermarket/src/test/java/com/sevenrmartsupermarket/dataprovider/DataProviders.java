@@ -13,5 +13,14 @@ public class DataProviders {
 		excelRead.setExcelFile("AddNews");
 	   return excelRead.getMultidimentionalData(3,1);	
 	}
+	
+	/*@DataProvider(name="Manage Contact")
+	public Object[][] updateContact()
+	{
+		excelRead.setExcelFile("ContactDetails");
+	   return excelRead.getMultidimentionalData(1,5);	
+	}*/
+	
+	
 
 }

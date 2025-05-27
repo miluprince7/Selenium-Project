@@ -17,7 +17,7 @@ public class ManageNewsTest extends Base {
 	DashBoardPage dashBoardPage;
 	
 	@Test(dataProvider="Manage News",dataProviderClass=DataProviders.class)
-	public void addNewNews(String news)
+	public void addNews(String news)
 	{
 		loginPage=new LoginPage(driver);
 		loginPage.login();

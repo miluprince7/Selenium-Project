@@ -5,15 +5,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import com.sevenrmartsupermarket.utilities.WaitUtility;
+import com.sevenrmartsupermarket.utilities.PageUtility;
 
 public class ManageContactPage {
 
 	WebDriver driver;
-	WaitUtility waitUtility;
-	JavascriptExecutor js = (JavascriptExecutor) driver;
-	// PageUtility pageUtility=new PageUtility(driver);
+	PageUtility pageUtility;
 
 	@FindBy(xpath = "//i[@class='fas fa-edit']")
 	private WebElement editContact;
@@ -55,7 +52,8 @@ public class ManageContactPage {
 			address.sendKeys(data);
 		}
 		if (column == 3) {
-			js.executeScript("window.scrollBy(0,1000)");
+			pageUtility = new PageUtility(driver);
+			pageUtility.scrollPage();
 			deliveryTime.clear();
 			deliveryTime.sendKeys(data);
 		}

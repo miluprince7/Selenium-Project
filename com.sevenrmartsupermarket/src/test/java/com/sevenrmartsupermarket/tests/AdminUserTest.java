@@ -4,23 +4,30 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.sevenrmartsupermarket.base.Base;
+import com.sevenrmartsupermarket.listeners.RetryAnalyzer;
 import com.sevenrmartsupermarket.pages.AdminUserPage;
 import com.sevenrmartsupermarket.pages.DashBoardPage;
 import com.sevenrmartsupermarket.pages.LoginPage;
+import com.sevenrmartsupermarket.utilities.GeneralUtility;
 
 public class AdminUserTest extends Base {
 	LoginPage loginPage;
 	DashBoardPage dashboardPage;
 	AdminUserPage adminUserPage;
+	GeneralUtility generalUtility;
+	
 
-	@Test
+	@Test(retryAnalyzer =RetryAnalyzer.class )
 	public void verifyAddUser() {
 		loginPage = new LoginPage(driver);
 		loginPage.login();
 		dashboardPage = new DashBoardPage(driver);
 		dashboardPage.clickMoreInfoOfAdminUser();
 		adminUserPage = new AdminUserPage(driver);
-		Assert.assertTrue(adminUserPage.validUserAddedAlert("jess", "jess@190","Staff"));
+		generalUtility=new GeneralUtility();
+		String name=generalUtility.getRandomName();
+		String password=generalUtility.getRandomPassword();
+		Assert.assertTrue(adminUserPage.validUserAddedAlert(name, password,"Staff"));
 	}
 
 	@Test
@@ -30,7 +37,7 @@ public class AdminUserTest extends Base {
 		dashboardPage = new DashBoardPage(driver);
 		dashboardPage.clickMoreInfoOfAdminUser();
 		adminUserPage = new AdminUserPage(driver);
-		Assert.assertTrue(adminUserPage.checkInvalidUserIsAdded("jake", "resh@340","Staff"));
+		Assert.assertTrue(adminUserPage.checkInvalidUserIsAdded("Clyde", "jake@340","Staff"));
 
 	}
 	
@@ -42,8 +49,8 @@ public class AdminUserTest extends Base {
 		dashboardPage = new DashBoardPage(driver);
 		dashboardPage.clickMoreInfoOfAdminUser();
 		adminUserPage = new AdminUserPage(driver);
-		String actualUsername=adminUserPage.searchUser("rheanj", "Staff");
-		String expectedUserName="rheanj";
+		String actualUsername=adminUserPage.searchUser("Clyde", "Staff");
+		String expectedUserName="Clyde";
 		Assert.assertEquals(actualUsername, expectedUserName);
 			
 	}
@@ -70,9 +77,7 @@ public class AdminUserTest extends Base {
 		dashboardPage = new DashBoardPage(driver);
 		dashboardPage.clickMoreInfoOfAdminUser();
 		adminUserPage = new AdminUserPage(driver);
-		//String actualAlertText=adminUserPage.deleteUser("efg");
-		//String expectedAlertText="User Deleted Successfully";
-		Assert.assertTrue(adminUserPage.deleteUser("real"));
+		Assert.assertTrue(adminUserPage.deleteUser("Dedrick","Admin"));
 	}
 
 }

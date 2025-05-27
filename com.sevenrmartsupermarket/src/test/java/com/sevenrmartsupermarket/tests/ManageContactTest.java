@@ -26,11 +26,10 @@ public class ManageContactTest extends Base {
 		manageContactPage.clickEditContactInfo();
 		excelRead.setExcelFile("ContactDetails");
 		for (int i = 0; i < 5; i++) {
-			String data = excelRead.getCellData(1, i);
+			String data = excelRead.getCellData(0, i);
 			manageContactPage.updateContactInfoDetails(i, data);
 
 		}
 		Assert.assertTrue(manageContactPage.saveContactDetails());
 	}
-
 }

@@ -7,6 +7,8 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import com.github.javafaker.Faker;
+
 public class GeneralUtility {
 	
 	public String getAttribute(WebElement element,String attribute)
@@ -34,6 +36,18 @@ public class GeneralUtility {
 		return element.getText().contains(data);
 	}
 	
+	public static String getRandomName()
+	{
+		Faker faker=new Faker();
+		return faker.name().firstName();
+		
+	}
+	public static String getRandomPassword()
+	{
+		Faker faker=new Faker();
+		return faker.internet().password();
+		
+	}
 	
 
 }
