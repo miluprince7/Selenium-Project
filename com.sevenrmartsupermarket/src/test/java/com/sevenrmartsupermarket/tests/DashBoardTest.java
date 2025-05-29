@@ -16,8 +16,7 @@ public class DashBoardTest extends Base
 	public void verifyAdminDashboard()
 	{
 		loginPage=new LoginPage(driver);
-		loginPage.login();
-		dashBoardPage=new DashBoardPage(driver);
+		dashBoardPage=loginPage.login();
 		dashBoardPage.clickMoreInfoOfAdminUser();
 	}
 	
@@ -25,9 +24,8 @@ public class DashBoardTest extends Base
 	public void verifyLogout()
 	{
 		loginPage=new LoginPage(driver);
-		loginPage.login();
-		dashBoardPage=new DashBoardPage(driver);
-	    Assert.assertTrue(dashBoardPage.logoutFromPage());
+		dashBoardPage=loginPage.login();
+		Assert.assertTrue(dashBoardPage.logoutFromPage());
 			
 	}
 }

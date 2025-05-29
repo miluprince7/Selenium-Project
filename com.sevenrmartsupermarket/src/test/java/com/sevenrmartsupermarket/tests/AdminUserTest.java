@@ -20,10 +20,8 @@ public class AdminUserTest extends Base {
 	@Test(retryAnalyzer =RetryAnalyzer.class )
 	public void verifyAddUser() {
 		loginPage = new LoginPage(driver);
-		loginPage.login();
-		dashboardPage = new DashBoardPage(driver);
-		dashboardPage.clickMoreInfoOfAdminUser();
-		adminUserPage = new AdminUserPage(driver);
+		dashboardPage=loginPage.login();
+		adminUserPage=dashboardPage.clickMoreInfoOfAdminUser();
 		generalUtility=new GeneralUtility();
 		String name=generalUtility.getRandomName();
 		String password=generalUtility.getRandomPassword();
@@ -33,10 +31,8 @@ public class AdminUserTest extends Base {
 	@Test
 	public void verifyInvalidUserAdded() {
 		loginPage = new LoginPage(driver);
-		loginPage.login();
-		dashboardPage = new DashBoardPage(driver);
-		dashboardPage.clickMoreInfoOfAdminUser();
-		adminUserPage = new AdminUserPage(driver);
+		dashboardPage=loginPage.login();
+		adminUserPage=dashboardPage.clickMoreInfoOfAdminUser();
 		Assert.assertTrue(adminUserPage.checkInvalidUserIsAdded("Clyde", "jake@340","Staff"));
 
 	}
@@ -45,10 +41,8 @@ public class AdminUserTest extends Base {
 	public void verifySearchValidUser()
 	{
 		loginPage = new LoginPage(driver);
-		loginPage.login();
-		dashboardPage = new DashBoardPage(driver);
-		dashboardPage.clickMoreInfoOfAdminUser();
-		adminUserPage = new AdminUserPage(driver);
+		dashboardPage=loginPage.login();
+		adminUserPage=dashboardPage.clickMoreInfoOfAdminUser();
 		String actualUsername=adminUserPage.searchUser("Clyde", "Staff");
 		String expectedUserName="Clyde";
 		Assert.assertEquals(actualUsername, expectedUserName);
@@ -59,10 +53,8 @@ public class AdminUserTest extends Base {
 	public void verifySearchInvalidUser()
 	{
 		loginPage = new LoginPage(driver);
-		loginPage.login();
-		dashboardPage = new DashBoardPage(driver);
-		dashboardPage.clickMoreInfoOfAdminUser();
-		adminUserPage = new AdminUserPage(driver);
+		dashboardPage=loginPage.login();
+		adminUserPage=dashboardPage.clickMoreInfoOfAdminUser();
 		String actualUsername=adminUserPage.searchUser("rhea", "Staff");
 		String expectedUserName=".........RESULT NOT FOUND.......";
 		Assert.assertEquals(actualUsername, expectedUserName);
@@ -73,11 +65,17 @@ public class AdminUserTest extends Base {
 	public void verifyDeleteValidUser()
 	{
 		loginPage = new LoginPage(driver);
-		loginPage.login();
-		dashboardPage = new DashBoardPage(driver);
-		dashboardPage.clickMoreInfoOfAdminUser();
-		adminUserPage = new AdminUserPage(driver);
+		dashboardPage=loginPage.login();
+		adminUserPage=dashboardPage.clickMoreInfoOfAdminUser();
 		Assert.assertTrue(adminUserPage.deleteUser("Dedrick","Admin"));
 	}
-
+	
+	@Test
+	public void verifyUpdateUserStatus()
+	{
+		loginPage = new LoginPage(driver);
+		dashboardPage=loginPage.login();
+		adminUserPage=dashboardPage.clickMoreInfoOfAdminUser();
+		Assert.assertTrue(adminUserPage.updateUserStatus("Evan","Admin"));
+	}
 }

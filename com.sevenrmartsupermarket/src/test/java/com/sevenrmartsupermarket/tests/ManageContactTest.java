@@ -19,8 +19,7 @@ public class ManageContactTest extends Base {
 	@Test
 	public void verifyUpdateOfContactDetail() {
 		loginPage = new LoginPage(driver);
-		loginPage.login();
-		dashboardPage = new DashBoardPage(driver);
+		dashboardPage=loginPage.login();
 		dashboardPage.clickMoreInfoOfManageContacts();
 		manageContactPage = new ManageContactPage(driver);
 		manageContactPage.clickEditContactInfo();

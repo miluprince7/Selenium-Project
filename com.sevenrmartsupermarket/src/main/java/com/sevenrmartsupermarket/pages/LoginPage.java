@@ -55,19 +55,20 @@ public class LoginPage {
 	}
 
 	// to pass username and password that user provide
-	public void login(String userName, String password) {
+	public DashBoardPage login(String userName, String password) {
 		enterUserName(userName);
 		enterPassword(password);
 		clickOnSignInButton();
+		return new DashBoardPage(driver);
 	}
 
-	// to read username and password from config.properties
-	public void login() {
+	public DashBoardPage login() {
 		String userName = properties.getProperty("username");
 		String password = properties.getProperty("password");
 		enterUserName(userName);
 		enterPassword(password);
 		clickOnSignInButton();
+		return new DashBoardPage(driver);
 	}
 
 	public boolean isErrorDisplayed() {

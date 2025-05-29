@@ -22,8 +22,7 @@ public class LoginTest extends Base {
 	@Test(groups = "smoke")
 	public void verifyValidLogin() {
 		loginPage = new LoginPage(driver);
-		loginPage.login();
-		dashBoardPage = new DashBoardPage(driver);
+		dashBoardPage= loginPage.login();
 		String actualProfileName = dashBoardPage.getProfileName();
 		String expectedProfileName = "Admin";
 		Assert.assertEquals(actualProfileName, expectedProfileName);

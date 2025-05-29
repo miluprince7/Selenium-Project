@@ -20,8 +20,7 @@ public class ManageNewsTest extends Base {
 	public void addNews(String news)
 	{
 		loginPage=new LoginPage(driver);
-		loginPage.login();
-		dashBoardPage=new DashBoardPage(driver);
+		dashBoardPage=loginPage.login();
 		dashBoardPage.clickMoreInfoOfManageNews();
 		manageNewsPage=new ManageNewsPage(driver);
 		Assert.assertTrue(manageNewsPage.addNews(news));

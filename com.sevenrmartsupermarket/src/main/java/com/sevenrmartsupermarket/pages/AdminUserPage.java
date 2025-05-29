@@ -48,6 +48,10 @@ public class AdminUserPage {
 	List<WebElement> specificUser;
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
 	private WebElement deleteUserMessage;
+	@FindBy(xpath = "//i[@class='fa fa-unlock']")
+	private WebElement userStatusToInactive;
+	@FindBy(xpath = "//i[@class='fa fa-lock']")
+	private WebElement userStatusToActive;
 
 	public AdminUserPage(WebDriver driver) {
 		this.driver = driver;
@@ -121,4 +125,76 @@ public class AdminUserPage {
 		return false;
 
 	}
+	
+	public boolean updateStatusToInactive(WebElement userStatusToInactive)
+	{
+		if(userStatusToInactive.getAttribute("class").contains("fa fa-unlock"))
+		{
+			System.out.println(userStatusToInactive.getAttribute("class"));
+			userStatusToInactive.click();
+			return true;
+		}
+		else 
+			return false;
+	}
+	
+	public boolean updateStatusToActive(WebElement userStatusToActive)
+	{
+		if(userStatusToActive.getAttribute("class").contains("fa fa-lock"))
+		{
+			System.out.println(userStatusToActive.getAttribute("class"));
+			userStatusToActive.click();
+			return true;
+		}
+		else 
+			return false;
+	}
+	
+	public boolean updateUserStatus(String userName, String userType) {
+		specificUser = driver.findElements(By.xpath("//table//tbody//tr//td[1]"));
+		for (int i = 0; i < specificUser.size(); i++) {
+			if (specificUser.get(i).getText().contains(userName)) {
+				System.out.println(userName);
+				searchUser(userName, userType);
+			
+				pageUtility = new PageUtility(driver);
+				pageUtility.scrollPage();
+				//userStatusToInactive.click();
+				//return true;
+				
+				boolean invalid=updateStatusToInactive(userStatusToInactive);
+				System.out.println(invalid);
+				boolean valid=updateStatusToActive(userStatusToActive);
+				System.out.println(valid);
+				if(invalid == true || valid==true)
+				{
+					return true;
+				}
+				else
+					return false;
+				/*if(userStatusToInactive.getAttribute("class").contains("fa fa-unlock"))
+				{
+					System.out.println(userStatusToInactive.getAttribute("class"));
+					userStatusToInactive.click();
+					return true;
+				}
+			    
+				//else if(userStatusToActive.getAttribute("class").contains("fa fa-lock"))
+				else
+				{
+					System.out.println(userStatusToActive.getAttribute("class"));
+					userStatusToActive.click();
+					return true;
+				}
+			}
+				else
+					System.out.println("user not found");*/
+				
+		}
+		//return false;
+		}
+		return false;
+	}
+
+
 }

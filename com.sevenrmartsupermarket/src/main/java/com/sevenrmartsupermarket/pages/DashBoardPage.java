@@ -11,8 +11,7 @@ public class DashBoardPage {
 
 	WebDriver driver;
 	
-
-	@FindBy(xpath = "//a[@class='d-block']")
+    @FindBy(xpath = "//a[@class='d-block']")
 	private WebElement profileName;
 	@FindBy(xpath = "//p[text()='Admin Users']//following::a[1][@class='small-box-footer']")
 	private WebElement adminDashboard;
@@ -35,8 +34,9 @@ public class DashBoardPage {
 		return profileName.getText();
 	}
 
-	public void clickMoreInfoOfAdminUser() {
+	public AdminUserPage clickMoreInfoOfAdminUser() {
 		adminDashboard.click();
+		return new AdminUserPage(driver);
 	}
 	public void clickMoreInfoOfManageNews() {
 		manageNews.click();
@@ -53,8 +53,6 @@ public class DashBoardPage {
 			return true;
 		}
 		else
-			return false;
-		
+			return false;		
 	}
-
 }
