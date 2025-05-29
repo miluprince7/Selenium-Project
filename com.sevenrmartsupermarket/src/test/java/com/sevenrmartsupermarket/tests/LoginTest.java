@@ -17,7 +17,7 @@ public class LoginTest extends Base {
 	DashBoardPage dashBoardPage;
 	ExcelRead excelRead = new ExcelRead();
 	GeneralUtility generalUtility;
-	// CaptureScreenshot captureScreenshot=new CaptureScreenshot();
+	CaptureScreenshot captureScreenshot=new CaptureScreenshot();
 
 	@Test(groups = "smoke")
 	public void verifyValidLogin() {
@@ -34,5 +34,6 @@ public class LoginTest extends Base {
 		loginPage = new LoginPage(driver);
 		loginPage.login("milu", "milu123");
 		Assert.assertTrue(loginPage.isErrorDisplayed());
+		captureScreenshot.takeScreenShot(driver, "error");
 	}
 }
