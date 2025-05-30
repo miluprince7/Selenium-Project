@@ -54,7 +54,6 @@ public class LoginPage {
 		
 	}
 
-	// to pass username and password that user provide
 	public DashBoardPage login(String userName, String password) {
 		enterUserName(userName);
 		enterPassword(password);
