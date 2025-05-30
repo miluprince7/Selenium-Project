@@ -104,7 +104,6 @@ public class AdminUserPage {
 		select = new Select(searchByUserType);
 		select.selectByVisibleText(userType);
 		searchUser.click();
-		// return userData.getText();
 		if (userData.getText().contains(userName)) {
 			return userData.getText();
 		}
