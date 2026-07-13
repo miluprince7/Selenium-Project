@@ -10,6 +10,8 @@ import com.sevenrmartsupermarket.utilities.PageUtility;
 public class DashBoardPage {
 
 	WebDriver driver;
+	PageUtility pageUtility;
+	
 	
     @FindBy(xpath = "//a[@class='d-block']")
 	private WebElement profileName;
@@ -23,6 +25,8 @@ public class DashBoardPage {
 	private WebElement manageNews;
 	@FindBy(xpath = "(//a[@class='small-box-footer'])[3]")
 	private WebElement manageContact;
+	@FindBy(xpath = "(//a[@class='small-box-footer'])[9]")
+	private WebElement manageCategory;
 	
 	
     public DashBoardPage(WebDriver driver) {
@@ -44,6 +48,12 @@ public class DashBoardPage {
 	public void clickMoreInfoOfManageContacts() {
 		manageContact.click();
 	}
+	public ManageCategoryPage clickMoreInfoOfManageCategory() {
+		pageUtility = new PageUtility(driver);
+		pageUtility.scrollAndClick(manageCategory);
+		return new ManageCategoryPage(driver);
+	}
+	
 
 	public boolean logoutFromPage() {
 		loggedInUser.click();

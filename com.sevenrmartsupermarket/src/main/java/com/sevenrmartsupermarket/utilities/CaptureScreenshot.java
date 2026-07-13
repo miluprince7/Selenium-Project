@@ -20,9 +20,9 @@ public class CaptureScreenshot {
 	public void takeScreenShot(WebDriver driver, String imageName) {
 		try {
 			takesScreenshot = (TakesScreenshot) driver;
-			File screenShot = takesScreenshot.getScreenshotAs(OutputType.FILE);// to capture screenshot
+			File screenShot = takesScreenshot.getScreenshotAs(OutputType.FILE);
 			String timeStamp = new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss").format(new Date());
-			String path = Constants.SCREENSHOTS_FILE_PATH + imageName + "_" + timeStamp + ".png";// save in this path
+			String path = Constants.SCREENSHOTS_FILE_PATH + imageName + "_" + timeStamp + ".png";
 			File destination = new File(path);
 			FileHandler.copy(screenShot, destination);
 

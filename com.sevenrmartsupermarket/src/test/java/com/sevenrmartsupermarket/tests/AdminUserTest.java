@@ -8,13 +8,17 @@ import com.sevenrmartsupermarket.listeners.RetryAnalyzer;
 import com.sevenrmartsupermarket.pages.AdminUserPage;
 import com.sevenrmartsupermarket.pages.DashBoardPage;
 import com.sevenrmartsupermarket.pages.LoginPage;
+import com.sevenrmartsupermarket.pages.ManageCategoryPage;
 import com.sevenrmartsupermarket.utilities.GeneralUtility;
+import com.sevenrmartsupermarket.utilities.PageUtility;
 
 public class AdminUserTest extends Base {
 	LoginPage loginPage;
 	DashBoardPage dashboardPage;
 	AdminUserPage adminUserPage;
+	ManageCategoryPage manageCategoryPage;
 	GeneralUtility generalUtility;
+	
 	
 
 	@Test(retryAnalyzer =RetryAnalyzer.class )

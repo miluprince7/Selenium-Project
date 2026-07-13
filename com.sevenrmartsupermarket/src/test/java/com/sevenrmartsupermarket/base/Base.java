@@ -71,8 +71,6 @@ public class Base {
 
 	@AfterMethod(alwaysRun = true)
 	public void terminateSession(ITestResult itestresult) {
-		// listener=interface used to monitor testcase status
-		// ITestResult-listener
 		if (itestresult.getStatus() == ITestResult.FAILURE) {
 			captureScreenshot.takeScreenShot(driver, itestresult.getName());
 		}

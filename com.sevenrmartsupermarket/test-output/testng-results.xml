@@ -1,101 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+<testng-results ignored="3" total="4" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-05-23T07:50:51 IST" name="seleniumProject" finished-at="2025-05-23T07:51:32 IST" duration-ms="40750">
+  <suite started-at="2026-06-15T19:37:43 IST" name="Default suite" finished-at="2026-06-15T19:37:51 IST" duration-ms="8764">
     <groups>
-      <group name="regression">
-        <method signature="DashBoardTest.verifyAdminDashboard()[pri:0, instance:com.sevenrmartsupermarket.tests.DashBoardTest@65987993]" name="verifyAdminDashboard" class="com.sevenrmartsupermarket.tests.DashBoardTest"/>
-        <method signature="DashBoardTest.verifyLogout()[pri:0, instance:com.sevenrmartsupermarket.tests.DashBoardTest@65987993]" name="verifyLogout" class="com.sevenrmartsupermarket.tests.DashBoardTest"/>
-      </group> <!-- regression -->
-      <group name="smoke">
-        <method signature="DashBoardTest.verifyAdminDashboard()[pri:0, instance:com.sevenrmartsupermarket.tests.DashBoardTest@65987993]" name="verifyAdminDashboard" class="com.sevenrmartsupermarket.tests.DashBoardTest"/>
-        <method signature="DashBoardTest.verifyLogout()[pri:0, instance:com.sevenrmartsupermarket.tests.DashBoardTest@65987993]" name="verifyLogout" class="com.sevenrmartsupermarket.tests.DashBoardTest"/>
-        <method signature="LoginTest.verifyInvalidLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@7e057f43]" name="verifyInvalidLogin" class="com.sevenrmartsupermarket.tests.LoginTest"/>
-        <method signature="LoginTest.verifyValidLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@7e057f43]" name="verifyValidLogin" class="com.sevenrmartsupermarket.tests.LoginTest"/>
-      </group> <!-- smoke -->
     </groups>
-    <test started-at="2025-05-23T07:50:51 IST" name="TestByGroup" finished-at="2025-05-23T07:51:32 IST" duration-ms="40750">
-      <class name="com.sevenrmartsupermarket.tests.DashBoardTest">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:com.sevenrmartsupermarket.tests.DashBoardTest@65987993]" started-at="2025-05-23T07:51:09 IST" name="launchBrowser" finished-at="2025-05-23T07:51:13 IST" duration-ms="3993" status="PASS">
+    <test started-at="2026-06-15T19:37:43 IST" name="Default test" finished-at="2026-06-15T19:37:51 IST" duration-ms="8764">
+      <class name="com.sevenrmartsupermarket.tests.ManageCategoryTest">
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:com.sevenrmartsupermarket.tests.ManageCategoryTest@5bda8e08]" started-at="2026-06-15T19:37:43 IST" name="launchBrowser" finished-at="2026-06-15T19:37:50 IST" duration-ms="7090" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchBrowser -->
-        <test-method signature="verifyAdminDashboard()[pri:0, instance:com.sevenrmartsupermarket.tests.DashBoardTest@65987993]" started-at="2025-05-23T07:51:13 IST" name="verifyAdminDashboard" finished-at="2025-05-23T07:51:17 IST" duration-ms="3503" status="PASS">
+        <test-method signature="verifyTotalPage()[pri:0, instance:com.sevenrmartsupermarket.tests.ManageCategoryTest@5bda8e08]" started-at="2026-06-15T19:37:50 IST" name="verifyTotalPage" finished-at="2026-06-15T19:37:51 IST" duration-ms="1366" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [55] but found [53]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [55] but found [53]
+at org.testng.Assert.fail(Assert.java:110)
+at org.testng.Assert.failNotEquals(Assert.java:1413)
+at org.testng.Assert.assertEqualsImpl(Assert.java:149)
+at org.testng.Assert.assertEquals(Assert.java:131)
+at org.testng.Assert.assertEquals(Assert.java:1240)
+at org.testng.Assert.assertEquals(Assert.java:1274)
+at com.sevenrmartsupermarket.tests.ManageCategoryTest.verifyTotalPage(ManageCategoryTest.java:61)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:829)
+at org.testng.TestRunner.run(TestRunner.java:602)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
+at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+at org.testng.TestNG.runSuites(TestNG.java:1099)
+at org.testng.TestNG.run(TestNG.java:1067)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyAdminDashboard -->
-        <test-method is-config="true" signature="terminateSession(org.testng.ITestResult)[pri:0, instance:com.sevenrmartsupermarket.tests.DashBoardTest@65987993]" started-at="2025-05-23T07:51:17 IST" name="terminateSession" finished-at="2025-05-23T07:51:17 IST" duration-ms="6" status="PASS">
+        </test-method> <!-- verifyTotalPage -->
+        <test-method is-config="true" signature="terminateSession(org.testng.ITestResult)[pri:0, instance:com.sevenrmartsupermarket.tests.ManageCategoryTest@5bda8e08]" started-at="2026-06-15T19:37:51 IST" name="terminateSession" finished-at="2026-06-15T19:37:51 IST" duration-ms="234" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyAdminDashboard status=SUCCESS method=DashBoardTest.verifyAdminDashboard()[pri:0, instance:com.sevenrmartsupermarket.tests.DashBoardTest@65987993] output={null}]]]>
+                <![CDATA[[TestResult name=verifyTotalPage status=FAILURE method=ManageCategoryTest.verifyTotalPage()[pri:0, instance:com.sevenrmartsupermarket.tests.ManageCategoryTest@5bda8e08] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- terminateSession -->
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:com.sevenrmartsupermarket.tests.DashBoardTest@65987993]" started-at="2025-05-23T07:51:17 IST" name="launchBrowser" finished-at="2025-05-23T07:51:24 IST" duration-ms="7596" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchBrowser -->
-        <test-method signature="verifyLogout()[pri:0, instance:com.sevenrmartsupermarket.tests.DashBoardTest@65987993]" started-at="2025-05-23T07:51:24 IST" name="verifyLogout" finished-at="2025-05-23T07:51:32 IST" duration-ms="7245" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyLogout -->
-        <test-method is-config="true" signature="terminateSession(org.testng.ITestResult)[pri:0, instance:com.sevenrmartsupermarket.tests.DashBoardTest@65987993]" started-at="2025-05-23T07:51:32 IST" name="terminateSession" finished-at="2025-05-23T07:51:32 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=verifyLogout status=SUCCESS method=DashBoardTest.verifyLogout()[pri:0, instance:com.sevenrmartsupermarket.tests.DashBoardTest@65987993] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- terminateSession -->
-      </class> <!-- com.sevenrmartsupermarket.tests.DashBoardTest -->
-      <class name="com.sevenrmartsupermarket.tests.LoginTest">
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@7e057f43]" started-at="2025-05-23T07:50:51 IST" name="launchBrowser" finished-at="2025-05-23T07:51:02 IST" duration-ms="11272" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchBrowser -->
-        <test-method signature="verifyInvalidLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@7e057f43]" started-at="2025-05-23T07:51:02 IST" name="verifyInvalidLogin" finished-at="2025-05-23T07:51:04 IST" duration-ms="1484" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyInvalidLogin -->
-        <test-method is-config="true" signature="terminateSession(org.testng.ITestResult)[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@7e057f43]" started-at="2025-05-23T07:51:04 IST" name="terminateSession" finished-at="2025-05-23T07:51:04 IST" duration-ms="7" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=verifyInvalidLogin status=SUCCESS method=LoginTest.verifyInvalidLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@7e057f43] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- terminateSession -->
-        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@7e057f43]" started-at="2025-05-23T07:51:04 IST" name="launchBrowser" finished-at="2025-05-23T07:51:08 IST" duration-ms="3778" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchBrowser -->
-        <test-method signature="verifyValidLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@7e057f43]" started-at="2025-05-23T07:51:08 IST" name="verifyValidLogin" finished-at="2025-05-23T07:51:09 IST" duration-ms="1723" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyValidLogin -->
-        <test-method is-config="true" signature="terminateSession(org.testng.ITestResult)[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@7e057f43]" started-at="2025-05-23T07:51:09 IST" name="terminateSession" finished-at="2025-05-23T07:51:09 IST" duration-ms="6" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=verifyValidLogin status=SUCCESS method=LoginTest.verifyValidLogin()[pri:0, instance:com.sevenrmartsupermarket.tests.LoginTest@7e057f43] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- terminateSession -->
-      </class> <!-- com.sevenrmartsupermarket.tests.LoginTest -->
-    </test> <!-- TestByGroup -->
-  </suite> <!-- seleniumProject -->
+      </class> <!-- com.sevenrmartsupermarket.tests.ManageCategoryTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
